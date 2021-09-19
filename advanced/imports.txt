@@ -1,0 +1,82 @@
+The import statement is used to access Python objects from other modules/packages.
+-------------------------------
+What is a module?
+-------------------------------
+In the simplest terms, a module is a python file that includes python objects. Everything in Python is considered an object.
+Example of objects include: class, function, variabes, etc.
+Any time a module is imported, all the objects from that model (e.g., functions and variables) are made available in the 
+import module. This allows code to be reused this making Python a more modulat language.
+
+-------------------------------
+What is a package?
+-------------------------------
+A package is a group of modules. You can think of a package as a folder that contains either other folders (referred to as 
+sub-packages) or python files/modules. Before Python 3.x, in order for the interpret to realize a folder as a Python package
+the folder must include a special file called __init__.py. This file is the first file that is executed when a pacakge 
+is imported.
+
+-------------------------------
+What is Python Standard Library
+-------------------------------
+The Python Standard Library is a group of packages/modules that are distributed together with the Python Interpreter. There 
+are no additional downloads required to use any of the packages/modules in the Standard Library. An import distinction between 
+packages/modules in the standard library is that some packages/modules are considered built-in (these are modules that are
+written in C and made part of the Python interpreter) while others are not built-in (these are usually convenience python 
+packages/modules writting in the Python language).
+To recap, the Python Standard Library includes:
+1. Built-in modules
+2. Non built-in modules
+You don't need to do any further downloads/installation to use any library from the Python Standard Library.
+
+-------------------------------
+Where does Python find modules/packages for import?
+-------------------------------
+It is important to understand how the Python interpreter looks for packages/modules to import so that you avoid confusion 
+related to 'Modules not found'. When the Python interpreter sees an import statement, it needs to locate the package/module 
+that is being referenced so that it can execute the code inside of the package's __init__ file or the module file (in case
+of module imports). So where does the Python interpreter look to find imported packages/modules?
+1. The first place Python interpreter looks is the list of built-in modules in the Standard Library: these are modules that are pre-packaged with 
+the Python distribution. Examples of built-in modules include: sys, os, math, pwd, time, and more. For a list of build in modules 
+run the following code in your Python interactive session: 
+  import sys
+  print(sys.builtin_module_names)
+the result is a tuple of all built in modules. This is where the interpreter starts looking for modules when it encounters the 
+import statement. 
+2. If a package\module is not found in the list of built-in modules, the Interpretur continues to look for packages/modules 
+in sys.path location which is initialized from:
+  a. the current directory of the executing module: this is the directory that contains the python script/module being executed.
+  b. PYTHONPATH (a list of directory names, with the syntax as the shell variable PATH): this includes any directories that are part of the PYTHONPATH environment variable.
+  c. the installation-dependent default: this include the rest of the Standard Library along with other third-party modules/pacakges that are directly downloaded.
+
+If the Interpreter can not locate your module/package in any of the locations above you will receive a Module NotFound Exception.
+
+-------------------------------
+How to import Python packages/modules
+-------------------------------
+There are 4 different syntaxes for writing import statements:
+1. import <package>
+2. import <module>
+3. from <package> import <sub-package/module/object> # remember when importing a package, the interpreter will execute code in the __init__.py file inside of the package.
+4. from <module> import <object>
+
+You can also assign a variable name to imported modules:
+Example: import <module> as <module_name>
+With this import statement you can use <module_name> to access objects imported from the <module> module.
+
+-------------------------------
+Absolute vs. Relative Imports
+-------------------------------
+There are two types of import statements:
+1. Absolute import: with absolute imports the interpreter uses the full path to the desired package\module to import.
+2. Relative import: with relative imports the interpreter uses the relative path to the desired package\module to import.
+
+To use relative imports, follow this format:
+from .<module/package> import <object>
+Notice the . before <module/package>, this tells the interpreter to look for the package\module in the current directory that the importing module 
+is in. Two dots (..) tells the interpreter to look in the parent directory of the importing module. Three dots (...) tells the interpreter to look 
+in the grand-parent directory of the importing module, and so on and so forth.
+
+-------------------------------
+Where can I learn mode about Python import
+-------------------------------
+Check out this article for more details discussion of Python import statement: https://chrisyeh96.github.io/2017/08/08/definitive-guide-python-imports.html#what-is-an-import
