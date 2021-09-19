@@ -43,10 +43,10 @@ type(id)  # this return <class int>
 
 # a constructor function is a function that creates a variable of a certain type
 # every built-in data type has a constructor function
-name = str('John Doe') = 'John Doe'
-id = int(19385) = 19385
-weight = float(154.4) = 154.4
-is_active = bool(False) = False
+name = str('John Doe')  # equivelant to name = 'John Doe'
+id = int(19385)  # equivelant to id = 19385
+weight = float(154.4)  # equivelant to weight = 154.4
+is_active = bool(False)  # equivelant to is_active = False
 # all these statements are equivelant
 
 # constructors can also be used to convert one data type to another

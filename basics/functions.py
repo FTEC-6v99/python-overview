@@ -30,13 +30,14 @@ function is called
 '''
 
 
-def greet(first_name='John', last_name='Doe'):
+def greet_with_defaults(first_name='John', last_name='Doe'):
     print(f'Hello {first_name} {last_name}')
 
 
-greet()  # since no arguments where provided the function will use the default values John and Doe
+# since no arguments where provided the function will use the default values John and Doe
+greet_with_defaults()
 # since arguments where provided, the function will override the default values
-greet('James', 'Smith')
+greet_with_defaults('James', 'Smith')
 
 # Note: it is not allowed to define a positional argument after a default argument:
 # def invalid_func_definition(fistname = 'John', lastname) <- not allowed
@@ -97,6 +98,6 @@ def sum(a, b):
     return a + b  # this simple func takes two args and return their sum
 
 
-def greet(first_name, last_name):
+def greet_with_no_return(first_name, last_name):
     # this argument doesn't return anything (no return keyword)
     print(f'Hello {first_name} {last_name}')
