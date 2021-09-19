@@ -24,11 +24,11 @@ fruits = ['apple', 'banana', 'mango']
 # lists are 0-based (i.e., the first element has an index of 0)
 
 # to retrieve an element from a list use the element's index between square brackets
-apple = fruits[0] # this will return the first element in the list
-banana = fruits[1] # second element in the list
+apple = fruits[0]  # this will return the first element in the list
+banana = fruits[1]  # second element in the list
 
 # to add elements to a list use the append function
-fruits.append('kiwi') # this will add the item to the end of the list
+fruits.append('kiwi')  # this will add the item to the end of the list
 
 # to insert an element in a specific position use the insert funtion
 fruits.insert(2, 'orange')
@@ -36,8 +36,8 @@ fruits.insert(2, 'orange')
 # to remove an item from a list:
 # remove function
 fruits.remove("kiwi")
-# del keyword 
-del fruits[0] # deletes the first item in the list
+# del keyword
+del fruits[0]  # deletes the first item in the list
 # pop function: returns and removes the item with the given index
 fruits.pop(2)
 
@@ -46,10 +46,10 @@ size = len(fruits)
 
 # ways to loop over a list
 for fruit in fruits:
-  print(fruit)
+    print(fruit)
 # or
 for i in range(len(fruits)):
-  print(fruits[i])
+    print(fruits[i])
 
 '''
 Tuple
@@ -61,19 +61,20 @@ ids = (154, 187, 192, 101)
 # unlike lists, tuple are immutable (can not change!)
 
 # Tuple items are accessed the same way as lists:
-id1 = ids[0] # like lists (and all other Python collections), tuples are use 0-based index
+# like lists (and all other Python collections), tuples are use 0-based index
+id1 = ids[0]
 id2 = ids[1]
 
 # you can use the in keyword to check if an item exists in a tuple:
 if 154 in ids:
-  print('154 ID is found')
+    print('154 ID is found')
 
 # loop over tuple:
 for id in ids:
-  print(id)
-# or 
+    print(id)
+# or
 for i in range(len(ids)):
-  print(ids[i])
+    print(ids[i])
 
 '''
 Set
@@ -87,7 +88,8 @@ departments = {'Sales', 'Engineering', 'Marketing', 'Finance'}
 # 3. unique: duplicates are not allowed
 
 # The distinguishing feature about sets is that they don't allow duplicates
-departments_with_duplicates = {'Sales', 'Sales', 'Engineering', 'Marketing', 'Finance'}
+departments_with_duplicates = {'Sales', 'Sales',
+                               'Engineering', 'Marketing', 'Finance'}
 
 # the above two sets are identical, because one of the two Sales items will be removed (no duplicated allowed)
 
@@ -96,25 +98,27 @@ departments.add('Accounting')
 
 # to remove an item from a set use the remove or pop functions
 departments.remove('Sales')
-departments.pop() # with sets pop doesn't not accept an argument because items in a set are not accessible
+# with sets pop doesn't not accept an argument because items in a set are not accessible
+departments.pop()
 
 # looping over a set
 for department in departments:
-  print(department)
+    print(department)
 
 '''
 Dictionaries
 '''
 # Dictionaries are a collection of key, value pairs:
 employee_name_by_id = {
-  1: 'John Doe',
-  2: 'Jane Doe',
-  3: 'James Doe'
+    1: 'John Doe',
+    2: 'Jane Doe',
+    3: 'James Doe'
 }
 
 # to access an item in a dictionary use the get function:
-employee_name_by_id.get(1) # returns John Doe
-employee_name_by_id.get(4) # returns None (i.e., key with value 4 is not found in the dictionary)
+employee_name_by_id.get(1)  # returns John Doe
+# returns None (i.e., key with value 4 is not found in the dictionary)
+employee_name_by_id.get(4)
 
 # to add an item to a dictionary:
 employee_name_by_id[4] = 'Mohamad Doe'
@@ -130,8 +134,13 @@ employee_name_by_id.values()
 employee_name_by_id.items()
 
 # to loop over dictionary:
+# 1. you can loop over the keys and use each key in the iteration to query the value from the dictionary:
 for id in employee_name_by_id.keys():
-  print(f'Employee id: {id}, Employee name: {employee_name_by_id[id]}')
-# or
-for id, name in employee_name_by_id:
-  print(f'Employee ID: {id}, Employee name: {name}')
+    print(f'Employee id: {id}, Employee name: {employee_name_by_id[id]}\n')
+# 2. you can loop over the values in the dictionary directly:
+for name in employee_name_by_id.values():
+    print(f'Employee name: {name}\n')
+# 3. you can loop over the items in the dictionary, this provides you a variable reference to the key and value
+# in each iteration:
+for id, name in employee_name_by_id.items():
+    print(f'Employee ID: {id}, Employee name: {name}\n')

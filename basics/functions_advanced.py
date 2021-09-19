@@ -12,7 +12,8 @@ def sum(a, b):
 
 sum_func = sum  # functions can be assigned to variables
 type(sum_func)  # this will return <class function>
-sum_func()  # this will call the sum function since sum_func variable has the sum func as a value
+# this will call the sum function since sum_func variable has the sum func as a value
+sum_func(2, 2)
 
 '''
 Function can be passed as arguments
